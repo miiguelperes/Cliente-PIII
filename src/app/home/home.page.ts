@@ -13,7 +13,7 @@ declare var google;
 export class HomePage {
 
   @ViewChild('map') mapElement: ElementRef;
-  
+
   map: any;
 
   pageSobre: any = SobrePage;
@@ -22,20 +22,20 @@ export class HomePage {
     effect: 'flip'
   };
 
-  constructor(public navCtrl: NavController, public geolocation: Geolocation) {
+  constructor(
+    public navCtrl: NavController, 
+    public geolocation: Geolocation
+  ){
+    
+    
+  }
+  ionViewWillEnter() {
     var self = this;
-    setTimeout(function(e){
-
-      self.loadMap();
-
-    },3000)
-  }
-  ionViewDidLoad(){
-    //this.loadMap();
+    self.loadMap();
   }
 
-  loadMap(){
-var self = this;
+  loadMap() {
+    var self = this;
     this.geolocation.getCurrentPosition().then((position) => {
 
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -47,7 +47,7 @@ var self = this;
         mapTypeControlOptions: {
           style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
           position: google.maps.ControlPosition.TOP_CENTER
-      },
+        },
         disableDefaultUI: true,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         zoomControl: false,
@@ -55,7 +55,7 @@ var self = this;
         streetViewControl: false,
         rotateControl: false,
         fullscreenControl: false
-       
+
       }
 
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
@@ -65,20 +65,20 @@ var self = this;
     });
 
   }
-  addMarker(){
+  addMarker() {
 
     let marker = new google.maps.Marker({
       map: this.map,
       animation: google.maps.Animation.DROP,
       position: this.map.getCenter()
     });
-  
-    let content = "<h4>Information!</h4>";          
-  
+
+    let content = "<h4>Information!</h4>";
+
     this.addInfoWindow(marker, content);
-  
+
   }
-  addInfoWindow(marker, content){
+  addInfoWindow(marker, content) {
 
     let infoWindow = new google.maps.InfoWindow({
       content: content
@@ -89,6 +89,6 @@ var self = this;
     });
 
   }
-  
+
 }
 

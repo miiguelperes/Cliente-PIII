@@ -1,5 +1,5 @@
-<ion-header *ngIf="atualPage.index != 0">
-    
+<!-- HEADER COM TITULO DINAMICO -->
+<ion-header *ngIf="atualPage.index != 0"> 
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button autoHide="false"></ion-menu-button>
@@ -10,19 +10,25 @@
         <ion-icon slot="icon-only" name="cart"></ion-icon>
       </ion-button>
     </ion-buttons>
-    
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
+  <!-- TABS COM SLIDE -->
   <ion-slides #slider pager="false" [options]="slideOpts" (ionSlideDidChange)="slideChanged()">
     <ion-slide *ngFor="let page of pages" >
-      <div *ngIf="page.index == 1" (click)="slideTo(1)">
-          <ion-nav [root]="page.path" (click)="slideTo(1)"></ion-nav>
+      <!-- VERIFICAÇÃO DA PRIMEIRA PÁGINA -->
+      <div *ngIf="page.index == 0" >
+        <!-- CLICK ADICIONADO PARA REDIRECIONAR A PAGINA -->
+        <ion-nav (click)="slideTo(1)" [root]="page.path"></ion-nav>
       </div>
-      <ion-nav *ngIf="page.index != 1" [root]="page.path"></ion-nav>
+      <!-- DEMAIS PAGINAS -->
+      <ion-nav *ngIf="page.index != 0" [root]="page.path"></ion-nav>
     </ion-slide>
   </ion-slides>  
 </ion-content>
+
+<!-- FOOTER -->
 <ion-footer *ngIf="atualPage.index != 0">
   <ion-toolbar>
     <ion-buttons slot="secondary">
