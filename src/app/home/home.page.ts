@@ -43,15 +43,19 @@ var self = this;
       let mapOptions = {
         center: latLng,
         zoom: 15,
+        mapTypeControl: false,
+        mapTypeControlOptions: {
+          style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+          position: google.maps.ControlPosition.TOP_CENTER
+      },
+        disableDefaultUI: true,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        controls: {
-          'compass': true,
-          'myLocationButton': true,
-          'myLocation': true,   // (blue dot)
-          'indoorPicker': true,
-          'zoom': true,          // android only
-          'mapToolbar': true     // android only
-        },
+        zoomControl: false,
+        scaleControl: false,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: false
+       
       }
 
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
