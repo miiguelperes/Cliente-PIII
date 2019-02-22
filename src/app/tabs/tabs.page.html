@@ -1,5 +1,5 @@
 <!-- HEADER COM TITULO DINAMICO -->
-<ion-header *ngIf="atualPage.index != 0"> 
+<ion-header class="fadeIn" *ngIf="atualPage.index != 0"> 
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button autoHide="false"></ion-menu-button>
@@ -13,7 +13,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
   <!-- TABS COM SLIDE -->
   <ion-slides #slider pager="false" [options]="slideOpts" (ionSlideDidChange)="slideChanged()">
     <ion-slide *ngFor="let page of pages" >
@@ -29,7 +29,7 @@
 </ion-content>
 
 <!-- FOOTER -->
-<ion-footer *ngIf="atualPage.index != 0">
+<ion-footer  class="fadeIn" *ngIf="atualPage.index != 0">
   <ion-toolbar>
     <ion-buttons slot="secondary">
       <ion-button fill="solid">
