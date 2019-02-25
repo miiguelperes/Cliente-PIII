@@ -16,6 +16,7 @@ import { MenuPageModule } from './menu/menu.module';
 import { TabsPageModule } from './tabs/tabs.module';
 import { CartPageModule } from './cart/cart.module';
 import { StartPageModule } from './start/start.module';
+import { OptionsPageModule } from './options/options.module';
 
 
 
@@ -39,7 +40,8 @@ import { StartPageModule } from './start/start.module';
     MenuPageModule,
     TabsPageModule,
     CartPageModule,
-    StartPageModule
+    StartPageModule,
+    OptionsPageModule
   ],
 
   providers: [

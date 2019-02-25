@@ -10,3 +10,18 @@
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
 
+.modal-fullscreen{
+    .modal-wrapper {
+    margin: auto;
+    z-index: 20001;
+    max-height: 75%!important;
+    box-shadow: 0px 1px 10px 2px #3e3e3e57;
+    border-radius: 24px;
+    max-width: 90%!important;
+    }
+    
+  }
+  .modal-fullscreen ion-title{
+    padding-left: 50px;
+    padding-right: 50px;
+  }
