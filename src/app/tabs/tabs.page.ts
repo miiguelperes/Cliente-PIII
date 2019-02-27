@@ -5,6 +5,8 @@ import { MenuPage } from '../menu/menu.page';
 import { ViewChild } from '@angular/core';
 import { MenuController, IonSlides, NavController } from '@ionic/angular';
 import { StartPage } from '../start/start.page';
+import { ModalController } from '@ionic/angular';
+import { OptionsPage } from '../options/options.page';
 
 @Component({
   selector: 'app-tabs',
@@ -12,22 +14,19 @@ import { StartPage } from '../start/start.page';
   styleUrls: ['./tabs.page.scss'],
 })
 
-
 export class TabsPage implements OnInit {
   
   @ViewChild('slider') slides: IonSlides;
-  
 
   pageSobre: any = SobrePage;
   homePage: any = HomePage;
   menuPage: any = MenuPage;
   startPage: any = StartPage;
+  optionsPage: any = OptionsPage;
 
   slideOpts = {
     effect: 'flip'
   };
-  
- 
 
   pages: any = [ 
     {path: this.startPage, name:"Start", index: 0},
@@ -38,10 +37,21 @@ export class TabsPage implements OnInit {
   ];
 
   atualPage: any = this.pages[0];
-  
-  constructor(private menu: MenuController, private navCtrl: NavController) { 
-    
 
+  constructor(
+    private menu: MenuController, 
+    private navCtrl: NavController,
+    public modalController: ModalController) { 
+
+  }
+  async presentModal() {
+    var self = this;
+    const modal = await this.modalController.create({
+      component: self.optionsPage,
+      componentProps: { value: 123 },
+      cssClass: "modal-fullscreen"
+    });
+    return await modal.present();
   }
   openCart(){
     this.navCtrl.navigateForward('cart');
@@ -52,16 +62,15 @@ export class TabsPage implements OnInit {
   slideChanged(event: any){
     var self = this;
     self.slides.getActiveIndex().then(rep=>{
-      //console.log("index", rep)
       self.atualPage = self.pages[rep];
     });
   }
   slideTo(index: any){
-    console.log("tes");
     var self = this;
     self.slides.slideTo(index);
   }
   ngOnInit() {
+    
   }
 
 }

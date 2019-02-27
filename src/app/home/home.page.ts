@@ -57,14 +57,27 @@ export class HomePage {
         fullscreenControl: false
 
       }
+      
 
-      this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+      self.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
       self.addMarker();
     }, (err) => {
       console.log(err);
     });
 
   }
+  placeMarker(location) {
+    let marker: any;
+    var self = this;
+
+    if (marker == null)
+    {
+      marker = new google.maps.Marker({
+         position: location,
+         map: self.map
+     }); } else {   marker.setPosition(location); } 
+    }
+  
   addMarker() {
 
     let marker = new google.maps.Marker({
