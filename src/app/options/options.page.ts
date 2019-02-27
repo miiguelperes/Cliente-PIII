@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavParams, NavController, ModalController  } from '@ionic/angular';
 import { ViewController } from '@ionic/core';
 
+
 @Component({
   selector: 'app-options',
   templateUrl: './options.page.html',
