@@ -22,6 +22,8 @@ export class HomePage {
     effect: 'flip'
   };
 
+  marker: any 
+
   constructor(
     public navCtrl: NavController, 
     public geolocation: Geolocation
@@ -64,7 +66,25 @@ export class HomePage {
     }, (err) => {
       console.log(err);
     });
+    self.marker = new google.maps.Marker({
+      map: self.map,
+      draggable: true,
+      animation: google.maps.Animation.DROP,
+      position: {lat: 59.327, lng: 18.067}
+    });
+    self.marker.addListener('click', self.toggleBounce);
+    google.maps.event.addListener(self.marker, 'click', () => {
+      
+    });
+  }
 
+  toggleBounce() {
+    var self = this;
+    if (self.marker.getAnimation() !== null) {
+      self.marker.setAnimation(null);
+    } else {
+      self.marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
   }
   placeMarker(location) {
     let marker: any;
@@ -76,7 +96,9 @@ export class HomePage {
          position: location,
          map: self.map
      }); } else {   marker.setPosition(location); } 
+     
     }
+    
   
   addMarker() {
 

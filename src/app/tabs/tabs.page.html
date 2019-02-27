@@ -2,12 +2,12 @@
 <ion-header class="fadeIn" *ngIf="atualPage.index != 0"> 
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button autoHide="false"></ion-menu-button>
+      <ion-menu-button  color="secondary" autoHide="false"></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{atualPage.name}}</ion-title>
+    <ion-title  color="secondary">{{atualPage.name}}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="openCart()">
-        <ion-icon slot="icon-only" name="cart"></ion-icon>
+        <ion-icon  color="secondary" slot="icon-only" name="cart"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -31,19 +31,10 @@
 <!-- FOOTER -->
 <ion-footer  class="fadeIn" *ngIf="atualPage.index != 0">
   <ion-toolbar>
-    <ion-buttons slot="secondary">
-      <ion-button fill="solid">
-        <ion-icon slot="start" name="contact"></ion-icon>
-        Contato
-      </ion-button>
-    </ion-buttons>
-    <ion-title></ion-title>
-    <ion-buttons slot="primary" (click)="presentModal()">
-      <ion-button fill="solid" color="secondary">
+      <ion-button  (click)="presentModal()" class="btn-newproblem" expand="full" fill="outline"  color="secondary">
       Novo Problema        
       <ion-icon slot="end" name="add-circle"></ion-icon>
       </ion-button>
-    </ion-buttons>
   </ion-toolbar>
   </ion-footer>
 

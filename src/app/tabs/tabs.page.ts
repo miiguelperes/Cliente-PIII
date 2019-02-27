@@ -36,13 +36,19 @@ export class TabsPage implements OnInit {
     
   ];
 
-  atualPage: any = this.pages[0];
+
+  atualPage: any;
 
   constructor(
     private menu: MenuController, 
     private navCtrl: NavController,
     public modalController: ModalController) { 
-
+      var self = this;
+      self.atualPage = self.pages[0];
+  }
+  ngAfterViewInit() {
+    var self = this;
+    self.atualPage = self.pages[0];
   }
   async presentModal() {
     var self = this;
