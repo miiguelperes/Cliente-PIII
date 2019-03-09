@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -41,7 +42,8 @@ import { OptionsPageModule } from './options/options.module';
     TabsPageModule,
     CartPageModule,
     StartPageModule,
-    OptionsPageModule
+    OptionsPageModule,
+    HttpClientModule
   ],
 
   providers: [
