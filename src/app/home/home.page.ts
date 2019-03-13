@@ -39,8 +39,14 @@ export class HomePage {
 
   ionViewWillEnter() {
     var self = this;
-    self.getMarkers();
     self.loadMap();
+  }
+  
+  ionViewDidEnter() {
+    var self = this;
+    setTimeout(function(){
+      self.getMarkers();
+    },1000) 
   }
 
   loadMap() {
@@ -144,11 +150,10 @@ export class HomePage {
   }
 
   getMarkers() {
-    this.http.get('assets/data/markers.json')
-      .pipe(map(res => res))
-      .subscribe((data) => {
-        this.addMarkersToMap(data);
-      });
+    var self = this;
+    self.http.get('assets/data/markers.json').subscribe(data => {
+      self.addMarkersToMap(data);
+    })
   }
 
   addMarkersToMap(markers: any) {

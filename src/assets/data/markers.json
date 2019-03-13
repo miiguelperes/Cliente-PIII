@@ -10,5 +10,11 @@
         "longitude": -46.04664892,
         "info": "Casa da cultura de São Gotardo",
         "name": "Prédio Amarelo"
+    },
+    {
+        "latitude": -18.57079901,
+        "longitude": -46.5092361,
+        "info": "UNIPAM - Centro Universitário de Patos de Minas",
+        "name": "UNIPAM"
     }
 ]
