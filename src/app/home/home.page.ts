@@ -1,10 +1,12 @@
 /* tslint:disable */
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { NavController } from '@ionic/angular';
+import { NavController, ModalController } from '@ionic/angular';
 import { SobrePage } from '../sobre/sobre.page';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { map } from 'rxjs/operators';
+import { MenuPage } from '../menu/menu.page';
+
 
 declare var google;
 
@@ -19,7 +21,7 @@ export class HomePage {
   @ViewChild('map') mapElement: ElementRef;
 
   map: any;
-
+  menuPage: any = MenuPage;
   pageSobre: any = SobrePage;
 
   slideOpts = {
@@ -31,7 +33,8 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     public geolocation: Geolocation,
-    public http: HttpClient
+    public http: HttpClient, 
+    public modalController: ModalController
   ) {}
 
   ionViewWillEnter() {
@@ -110,8 +113,25 @@ export class HomePage {
 
     let content = '<h4>Information!</h4>';
 
-    this.addInfoWindow(marker, content);
+    this.openModal(marker);
   }
+
+  async presentModal() {
+    var self = this;
+    const modal = await this.modalController.create({
+      component: self.menuPage,
+      componentProps: { value: 123 },
+      cssClass: "modal-fullscreen"
+    });
+    return await modal.present();
+  }
+
+  openModal(marker) {
+   
+    google.maps.event.addListener(marker, 'click', () => {
+      this.presentModal();
+    });
+  }  
 
   addInfoWindow(marker, content) {
     let infoWindow = new google.maps.InfoWindow({
