@@ -72,18 +72,9 @@ export class HomePage {
 
       }
       self.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-      self.addMarker();
+      //self.addMarker();
     }, (err) => {
       console.log(err);
-    });
-    self.marker = new google.maps.Marker({
-      map: self.map,
-      draggable: true,
-      animation: google.maps.Animation.DROP,
-      position: { lat: 59.327, lng: 18.067 }
-    });
-    self.marker.addListener('click', self.toggleBounce);
-    google.maps.event.addListener(self.marker, 'click', () => {
     });
   }
 
@@ -119,33 +110,36 @@ export class HomePage {
 
     let content = '<h4>Information!</h4>';
 
-    this.openModal(marker);
+    
   }
 
-  async presentModal() {
+  async presentModal(maker) {
     var self = this;
     const modal = await this.modalController.create({
       component: self.menuPage,
-      componentProps: { value: 123 },
+      componentProps: { value: maker },
       cssClass: "modal-fullscreen"
     });
     return await modal.present();
   }
 
   openModal(marker) {
+    console.log(marker);
+      this.presentModal(marker);
    
-    google.maps.event.addListener(marker, 'click', () => {
-      this.presentModal();
-    });
   }  
 
   addInfoWindow(marker, content) {
+    var self = this;
+    
     let infoWindow = new google.maps.InfoWindow({
       content: content
     });
 
     google.maps.event.addListener(marker, 'click', () => {
-      infoWindow.open(this.map, marker);
+     // infoWindow.open(this.map, marker);
+
+      self.openModal(content);
     });
   }
 
@@ -157,14 +151,19 @@ export class HomePage {
   }
 
   addMarkersToMap(markers: any) {
-    for (let marker of markers) {
+    var self = this;
+    for (var marker of markers) {
       let position = new google.maps.LatLng(marker.latitude, marker.longitude);
       let markerInfo = new google.maps.Marker({
         position: position,
         title: marker.name
       });
+      markerInfo.addListener('click', function() {
+        self.openModal(marker);
+      });
       markerInfo.setMap(this.map);
-      this.addInfoWindow(markerInfo, marker.info);
+      
+     // this.addInfoWindow(markerInfo, marker);
     }
   }
 

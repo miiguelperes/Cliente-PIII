@@ -1,17 +1,26 @@
 [
     {
+        "id":1,
+        "descricao":"Lorem ipsum dolor sit, amet conminus nemo accusamus cum animi obcaecati ex odio in alias facilis?",
+        "tipo":"Falta de saneamento básico",
         "latitude": -19.31144711,
         "longitude": -46.04862303,
         "info": "Igreja Matriz de São Sebastião em São Gotardo",
         "name": "Igreja Matriz"
     },
     {
+        "id":2,
+        "descricao":"Lorem ipsum dolor sit, amet conminus nemo accusamus cum animi obcaecati ex odio in alias facilis?",
+        "tipo":"Falta de  básico",
         "latitude": -19.30945244,
         "longitude": -46.04664892,
         "info": "Casa da cultura de São Gotardo",
         "name": "Prédio Amarelo"
     },
     {
+        "id":3,
+        "descricao":"Lorem ipsum dolor sit, amet conminus nemo accusamus cum animi obcaecati ex odio in alias facilis?",
+        "tipo":"Falta de saneamento ",
         "latitude": -18.57079901,
         "longitude": -46.5092361,
         "info": "UNIPAM - Centro Universitário de Patos de Minas",

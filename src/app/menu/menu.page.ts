@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { NavParams } from '@ionic/angular';
 
 @Component({
   selector: 'app-menu',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.page.scss'],
 })
 export class MenuPage implements OnInit {
+  @Input() value: any;
 
-  constructor() { }
+  problem: any;
+
+  constructor(navParams: NavParams) {
+  
+  }
+
 
   ngOnInit() {
+    this.load();
+  }
+
+  load(){
+    this.problem = this.value;
+    console.log(this.value);
   }
 
 }
