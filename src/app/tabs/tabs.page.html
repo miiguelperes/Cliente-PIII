@@ -2,13 +2,12 @@
 <ion-header class="fadeIn" *ngIf="atualPage.index != 0"> 
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button  color="secondary" autoHide="false"></ion-menu-button>
+      
+      <img src="../assets/svg/logo-h.svg" style="height: 36px;">
     </ion-buttons>
     <ion-title  color="secondary">{{atualPage.name}}</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="openCart()">
-        <ion-icon  color="secondary" slot="icon-only" name="cart"></ion-icon>
-      </ion-button>
+      <ion-menu-button  color="secondary" autoHide="false"></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

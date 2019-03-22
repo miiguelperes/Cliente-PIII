@@ -45,7 +45,7 @@ export class HomePage {
   ionViewDidEnter() {
     var self = this;
     setTimeout(function(){
-      self.getMarkers();
+     // self.getMarkers();
     },1000) 
   }
 
@@ -75,42 +75,9 @@ export class HomePage {
       //self.addMarker();
     }, (err) => {
       console.log(err);
+    }).then(r=>{
+      self.getMarkers();
     });
-  }
-
-  toggleBounce() {
-    var self = this;
-    if (self.marker.getAnimation() !== null) {
-      self.marker.setAnimation(null);
-    } else {
-      self.marker.setAnimation(google.maps.Animation.BOUNCE);
-    }
-  }
-
-  placeMarker(location) {
-    let marker: any;
-    var self = this;
-
-    if (marker == null) {
-      marker = new google.maps.Marker({
-        position: location,
-        map: self.map
-      });
-    } else {
-      marker.setPosition(location);
-    }
-  }
-
-  addMarker() {
-    let marker = new google.maps.Marker({
-      map: this.map,
-      animation: google.maps.Animation.DROP,
-      position: this.map.getCenter()
-    });
-
-    let content = '<h4>Information!</h4>';
-
-    
   }
 
   async presentModal(maker) {
@@ -124,24 +91,11 @@ export class HomePage {
   }
 
   openModal(marker) {
-    console.log(marker);
+    //console.log(marker);
       this.presentModal(marker);
    
   }  
 
-  addInfoWindow(marker, content) {
-    var self = this;
-    
-    let infoWindow = new google.maps.InfoWindow({
-      content: content
-    });
-
-    google.maps.event.addListener(marker, 'click', () => {
-     // infoWindow.open(this.map, marker);
-
-      self.openModal(content);
-    });
-  }
 
   getMarkers() {
     var self = this;
@@ -151,8 +105,10 @@ export class HomePage {
   }
 
   addMarkersToMap(markers: any) {
+    
     var self = this;
-    for (var marker of markers) {
+
+    markers.forEach(marker => {
       let position = new google.maps.LatLng(marker.latitude, marker.longitude);
       let markerInfo = new google.maps.Marker({
         position: position,
@@ -162,9 +118,8 @@ export class HomePage {
         self.openModal(marker);
       });
       markerInfo.setMap(this.map);
-      
-     // this.addInfoWindow(markerInfo, marker);
-    }
+    });
+
   }
 
 }

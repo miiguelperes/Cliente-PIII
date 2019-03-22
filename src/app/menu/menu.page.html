@@ -1,17 +1,14 @@
 <ion-content>
     <ion-grid>
         <ion-row>
-          <ion-col>
+          <ion-col *ngIf="problem">
             <ion-card sc-ion-card-md-h sc-ion-card-md-s hydrated>
               <img src="../../assets/img/sanemamento.jpg" style="height: 100%; width: 100%;">
               <ion-card-header>
-                <ion-card-subtitle>Ipanema II - Patos de Minas  </ion-card-subtitle>
-                <ion-card-title>Falta de saneamento básico</ion-card-title>
+                <ion-card-subtitle> {{problem.info}} </ion-card-subtitle>
+                <ion-card-title>{{problem.tipo}} </ion-card-title>
               </ion-card-header>
-              <ion-card-content>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                Quo, eius eos. Unde amet et, sapiente ullam inventore enim ad 
-                minus nemo accusamus cum animi obcaecati ex odio in alias facilis?
+              <ion-card-content>{{problem.descricao}} 
               </ion-card-content>
               <ion-item href="#" class="activated">
                 <ion-icon name="add-circle-outline" slot="start"></ion-icon>
