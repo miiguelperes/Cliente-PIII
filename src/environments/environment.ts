@@ -5,6 +5,7 @@
 export const environment = {
   production: false
 };
+export const SERVER_URL = 'http://unipam.peresbusinessintelligence.com.br/api/v1/';
 
 /*
  * For easier debugging in development mode, you can import the following file

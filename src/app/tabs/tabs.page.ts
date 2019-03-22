@@ -44,8 +44,18 @@ export class TabsPage implements OnInit {
     private navCtrl: NavController,
     public modalController: ModalController) { 
       var self = this;
+
+      var user = localStorage.getItem('user');
+
+      if(user){
+
+      }else{
+        self.navCtrl.navigateRoot('/login');
+      }
+      
       self.atualPage = self.pages[0];
   }
+
   ngAfterViewInit() {
     var self = this;
     self.atualPage = self.pages[0];
