@@ -54,4 +54,7 @@ import { OptionsPageModule } from './options/options.module';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+
+  
+}

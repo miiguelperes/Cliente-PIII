@@ -29,7 +29,7 @@ export class TabsPage implements OnInit {
   };
 
   pages: any = [ 
-    {path: this.startPage, name:"Start", index: 0},
+    /*{path: this.startPage, name:"Start", index: 0},*/
     {path: this.homePage, name:"Home", index: 1},
     {path: this.menuPage, name:"Menu", index: 2},
     {path: this.pageSobre, name:"Sobre", index: 3},
