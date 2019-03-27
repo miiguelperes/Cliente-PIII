@@ -9,3 +9,27 @@
     justify-content: center;
     width: 100%;
 }
+.padding{
+    margin-top: 10vh;
+}
+ion-content {
+    --overflow: hidden;
+}
+.btn-login{
+    width: 100%;
+    font-size: 15px;
+    border-radius: 4px;
+    background: #8dc342;
+    padding: 13px;
+    color: #fff;
+    border: 2px solid #8dc342;
+}
+.btn-login:active{
+    width: 100%;
+    font-size: 15px;
+    border-radius: 4px;
+    background: #fff;
+    padding: 13px;
+    color: #8dc342;
+    border: 2px solid #8dc342;
+}

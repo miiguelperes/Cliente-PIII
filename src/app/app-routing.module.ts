@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },
   { path: 'start', loadChildren: './start/start.module#StartPageModule' },
   { path: 'options', loadChildren: './options/options.module#OptionsPageModule' },
-  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
+
 
 ];
 

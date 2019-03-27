@@ -8,7 +8,7 @@
           <ion-content>
             <ion-list>
               <ion-item>Configurações</ion-item>
-              <ion-item>Perfil</ion-item>
+              <ion-item (click)="navCtrl.navigateRoot('/profile');menu.close('first');">Perfil</ion-item>
               <ion-item (click)="sair()">Sair</ion-item>
             </ion-list>
           </ion-content>
