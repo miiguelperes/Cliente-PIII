@@ -14,6 +14,11 @@ export class OptionsPage implements OnInit {
   
   viewCtrl: any = ViewController;
   opcoes: any = false;
+  tipo: any;
+  descricao: any;
+  causa: any;
+  endereco: any;
+  nivel: any;
 
   constructor(
     navParams: NavParams, 
@@ -23,9 +28,27 @@ export class OptionsPage implements OnInit {
     ) {
       
      }
-
+     
   ngOnInit() {
     this.getTiposProblemas();
+  }
+  adicionar() {
+    var self = this;
+    var user = JSON.parse(localStorage.getItem('user'));
+    var body = {
+      user: user.id,
+      tipo: self.tipo,
+      descricao: self.descricao,
+      causa: self.causa,
+      endereco: self.endereco,
+      img_path:"array com as imagens do problema",
+      nivel: self.nivel,
+      previsao: 1
+    };
+    console.log(body)
+    self.http.post(SERVER_URL+'novoproblema', body).subscribe(resposta=>{
+      console.log(resposta);
+    })
   }
   getTiposProblemas(){
     var self = this;
