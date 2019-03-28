@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavParams, NavController, ModalController  } from '@ionic/angular';
-import { ViewController } from '@ionic/core';
+
 import { HttpClient } from '@angular/common/http';
 import { SERVER_URL } from 'src/environments/environment';
 
@@ -12,7 +12,7 @@ import { SERVER_URL } from 'src/environments/environment';
 })
 export class OptionsPage implements OnInit {
   
-  viewCtrl: any = ViewController;
+  
   opcoes: any = false;
 
   constructor(

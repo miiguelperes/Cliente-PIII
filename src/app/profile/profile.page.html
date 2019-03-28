@@ -1,9 +1,68 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>profile</ion-title>
-  </ion-toolbar>
+      <ion-buttons slot="start">
+        <img src="../assets/svg/logo-h.svg" style="height: 36px;">
+      </ion-buttons>
+      <ion-title  color="secondary">Perfil</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="close()">Sair</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-grid *ngIf="user">
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Nome</ion-label>
+          <ion-input [(ngModel)]="user.name" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input disabled [(ngModel)]="user.email" type="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Telefone</ion-label>
+          <ion-input [(ngModel)]="user.phone" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Celular</ion-label>
+          <ion-input [(ngModel)]="user.mobile" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Endereço</ion-label>
+          <ion-input [(ngModel)]="user.street_addr" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Cidade</ion-label>
+          <ion-input [(ngModel)]="user.city" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">CEP</ion-label>
+          <ion-input [(ngModel)]="user.zip" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Estado</ion-label>
+          <ion-input [(ngModel)]="user.state_id" type="text"></ion-input>
+        </ion-item>
+        
+        <h6>Ultimo login: {{user.last_login}}</h6>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row>
+      <ion-col>
+        <button (click)="updateUser()" class="btn-login">Atualizar Dados</button>
+      </ion-col>
+    </ion-row>
+
+    
+  </ion-grid>
 
 </ion-content>

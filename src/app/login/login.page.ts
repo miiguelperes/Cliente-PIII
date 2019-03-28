@@ -59,7 +59,7 @@ export class LoginPage implements OnInit {
           self.presentToast();
         }
       }else if(resp.status == 1){
-        localStorage.setItem('user', resp.user)
+        localStorage.setItem('user', JSON.stringify(resp.user))
         self.mensagem = resp.message;
         self.presentToast().then(e=>{
           self.navCtrl.navigateRoot('/tabs');
