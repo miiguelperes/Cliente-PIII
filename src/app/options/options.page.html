@@ -5,9 +5,37 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-list *ngIf="opcoes">
-        <ion-item *ngFor="let opt of opcoes" (click)="close(opt.id)">
-          <ion-label>{{opt.nome}}</ion-label>
-        </ion-item>
-      </ion-list>
+  <ion-grid>
+    <ion-row>
+        <ion-col>
+          <ion-item *ngIf="opcoes">
+            <ion-label>Tipo</ion-label>
+            <ion-select [(ngModel)]="tipo" placeholder="Selecione o tipo">
+              <ion-select-option *ngFor="let opt of opcoes"  value="opt.id">{{opt.nome}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Descrição</ion-label>
+            <ion-textarea [(ngModel)]="descricao"></ion-textarea>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Causa</ion-label>
+            <ion-textarea [(ngModel)]="causa"></ion-textarea>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Endereço</ion-label>
+            <ion-textarea [(ngModel)]="endereco"></ion-textarea>
+          </ion-item>
+          <ion-item>
+            <ion-label>Nível</ion-label>
+            <ion-select [(ngModel)]="nivel" placeholder="Selecione o nível">
+              <ion-select-option value="0">Baixo</ion-select-option>
+              <ion-select-option value="1">Médio</ion-select-option>
+              <ion-select-option value="2">Alto</ion-select-option>
+            </ion-select>
+          </ion-item>
+            <ion-button expand="block" (click)="adicionar()">Adicionar</ion-button>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
