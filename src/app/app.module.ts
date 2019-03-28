@@ -18,7 +18,8 @@ import { TabsPageModule } from './tabs/tabs.module';
 import { CartPageModule } from './cart/cart.module';
 import { StartPageModule } from './start/start.module';
 import { OptionsPageModule } from './options/options.module';
-
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+import { Camera } from '@ionic-native/camera/ngx';
 
 
 @NgModule({
@@ -50,6 +51,8 @@ import { OptionsPageModule } from './options/options.module';
     StatusBar,
     SplashScreen,
     Geolocation,
+    NativeGeocoder,
+    Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
