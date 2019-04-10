@@ -1,3 +1,4 @@
+/* tslint:disable */
 import { Component, OnInit } from '@angular/core';
 import { NavParams, NavController, ModalController  } from '@ionic/angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
@@ -88,11 +89,8 @@ export class OptionsPage implements OnInit {
     }).then(r=>{
       self.endereco = r;
     })
-   
-
   }
-  closeModal()
-  {
+  closeModal() {
     this.modalCtrl.dismiss();
   }
   adicionar() {
@@ -109,9 +107,13 @@ export class OptionsPage implements OnInit {
       previsao: 1
     };
     console.log(body)
+    this.http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + self.endereco + '&key=AIzaSyC0x-fKDpBgy6ldxYgHyJD_gFuGos-1CxE').subscribe((geo: any) => {
+      console.log(geo.results[0].geometry.location)
+    })
     self.http.post(SERVER_URL+'novoproblema', body).subscribe(resposta=>{
       console.log(resposta);
     })
+    this.closeModal();
   }
   getTiposProblemas(){
     var self = this;
