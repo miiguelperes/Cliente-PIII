@@ -6,6 +6,7 @@ import { SobrePage } from '../sobre/sobre.page';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { map } from 'rxjs/operators';
 import { MenuPage } from '../menu/menu.page';
+import { SERVER_URL } from 'src/environments/environment';
 
 
 declare var google;
@@ -99,9 +100,13 @@ export class HomePage {
 
   getMarkers() {
     var self = this;
-    self.http.get('assets/data/markers.json').subscribe(data => {
-      self.addMarkersToMap(data);
+    self.http.get(SERVER_URL+'getmarkers').subscribe((data:any)=>{
+      console.log(data.message);
+      self.addMarkersToMap(data.data);
     })
+    /*self.http.get('assets/data/markers.json').subscribe(data => {
+      self.addMarkersToMap(data);
+    })*/
   }
 
   addMarkersToMap(markers: any) {
@@ -109,10 +114,9 @@ export class HomePage {
     var self = this;
 
     markers.forEach(marker => {
-      let position = new google.maps.LatLng(marker.latitude, marker.longitude);
+      let position = new google.maps.LatLng(marker.lat, marker.long);
       let markerInfo = new google.maps.Marker({
-        position: position,
-        title: marker.name
+        position: position
       });
       markerInfo.addListener('click', function() {
         self.openModal(marker);

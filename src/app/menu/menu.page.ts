@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NavParams } from '@ionic/angular';
+import { HttpClient } from '@angular/common/http';
+import { SERVER_URL } from 'src/environments/environment';
 
 @Component({
   selector: 'app-menu',
@@ -11,7 +13,10 @@ export class MenuPage implements OnInit {
 
   problem: any;
 
-  constructor(navParams: NavParams) {
+  constructor(
+    public http: HttpClient,
+    navParams: NavParams
+    ) {
   
   }
 
@@ -21,8 +26,16 @@ export class MenuPage implements OnInit {
   }
 
   load(){
-    this.problem = this.value;
-    console.log(this.value);
+    var self = this;
+    var marker = self.value;
+    if(marker){
+       self.getProblem(marker.id);
+    }
+  }
+  getProblem(identify){
+    this.http.post(SERVER_URL + 'problema', {id: identify}).subscribe((r:any) =>{
+      this.problem = r.data;
+    })
   }
 
 }

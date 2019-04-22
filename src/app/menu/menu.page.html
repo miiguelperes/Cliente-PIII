@@ -2,7 +2,12 @@
     <ion-grid>
         <ion-row>
           <ion-col *ngIf="problem">
-            <ion-card sc-ion-card-md-h sc-ion-card-md-s hydrated>
+            {{problem | json }}
+            <ion-item href="#" class="activated">
+                <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+                <ion-label>Veja mais aqui</ion-label>
+              </ion-item>
+            <!--<ion-card sc-ion-card-md-h sc-ion-card-md-s hydrated>
               <img src="../../assets/img/sanemamento.jpg" style="height: 100%; width: 100%;">
               <ion-card-header>
                 <ion-card-subtitle> {{problem.info}} </ion-card-subtitle>
@@ -14,7 +19,7 @@
                 <ion-icon name="add-circle-outline" slot="start"></ion-icon>
                 <ion-label>Veja mais aqui</ion-label>
               </ion-item>
-            </ion-card>       
+            </ion-card>    -->   
           </ion-col>
         </ion-row>
       </ion-grid>

@@ -18,14 +18,21 @@
           <ion-button *ngIf="images.length == 0" style="width: 100%;" (click)="newPic()">
             <ion-icon slot="icon-only" name="md-camera"></ion-icon>
           </ion-button>
+          
           <ion-slides *ngIf="images" pager="true" [options]="slideOpts">
             <ion-slide *ngFor="let img of images">
+                <div style="display: flex; flex-flow: wrap; justify-content: center;">
+                
               <ion-img [src]="img" class="imagem"></ion-img>
+              <ion-button size="small" (click)="removePic(img)" style="position:absolute">
+                  Remover
+                </ion-button>
+              </div>
             </ion-slide>
           </ion-slides>
         </div>
         <ion-item *ngIf="images.length != 0">
-          <ion-button size="default" (click)="newPic()" style="width: 100%;">
+          <ion-button *ngIf="images.length <= 2" size="default" (click)="newPic()" style="width: 100%;">
             <ion-icon slot="icon-only" name="md-camera"></ion-icon>
           </ion-button>
         </ion-item>
