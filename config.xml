@@ -17,6 +17,7 @@
     <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="FadeSplashScreenDuration" value="300" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
+    <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyCOV9Bx3-1qIU613qrEW8jvLtR63yuPx9I" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <platform name="android">
@@ -92,4 +93,5 @@
     </plugin>
     <plugin name="cordova-plugin-camera" spec="4.0.3" />
     <plugin name="cordova-plugin-nativegeocoder" spec="3.2.1" />
+    <engine name="android" spec="7.0.0" />
 </widget>

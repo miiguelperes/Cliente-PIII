@@ -27,19 +27,24 @@ export class ProfilePage implements OnInit {
   async updateUser() {
     var self = this;
     var body = this.user;
-    new Promise(resolve => {
-      this.http.post(SERVER_URL + 'update', body).subscribe(r => {
-        resolve(r);
-      })
-    }).then(r => {
-      var resp: any = r;
-      if (resp.status == 1) {
-        self.user = resp.user;
-        localStorage.setItem('user', resp.user);
-        self.presentToast(resp.message);
-      }
-    })
+    try {
 
+
+      new Promise((resolve, reject) => {
+        this.http.post(SERVER_URL + 'update', body).subscribe(r => {
+          resolve(r);
+        })
+      }).then(r => {
+        var resp: any = r;
+        if (resp.status == 1) {
+          self.user = resp.user;
+          localStorage.setItem('user', resp.user);
+          self.presentToast(resp.message);
+        }
+      }).catch(e => { })
+    } catch (error) {
+
+    }
 
   }
   async presentToast(msg) {

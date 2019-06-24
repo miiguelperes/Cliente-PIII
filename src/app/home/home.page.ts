@@ -78,7 +78,7 @@ export class HomePage {
       console.log(err);
     }).then(r=>{
       self.getMarkers();
-    });
+    }).catch();
   }
 
   async presentModal(maker) {
